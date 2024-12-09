@@ -31,9 +31,3 @@ with (open(file_path, "r", encoding="utf-8") as file):
 
 print(sum(elem * index for index, elem in enumerate(processed[:point_2 + 1])))
 
-    # shift = 0
-    # for i in range(len(line)):
-    #     if i % 2:
-    #         empty.extend([j + shift for j in range(line[i])])
-    #     shift += line[i]
-
