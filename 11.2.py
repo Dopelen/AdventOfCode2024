@@ -13,13 +13,18 @@ def blinking(val, left):
     left -= 1
     if val == "0":
         fractions = mapping.get(("1", left)) or blinking("1", left)
-    elif not (len(val) % 2):
-        fractions = (mapping.get((val[:len(val) // 2], left)) or blinking(val[:len(val) // 2], left)) + (
-                mapping.get((val[len(val) // 2::].lstrip("0") or "0",
-                             left)) or blinking(val[len(val) // 2::].lstrip("0") or "0",
-                                                left))
+    elif len(val) % 2 == 0:
+        mid = len(val) // 2
+        left_part = val[:mid]
+        right_part = val[mid:].lstrip("0") or "0"
+        fractions = (
+                            mapping.get((left_part, left)) or blinking(left_part, left)
+                    ) + (
+                            mapping.get((right_part, left)) or blinking(right_part, left)
+                    )
     else:
-        fractions = mapping.get((str(int(val) * 2024), left)) or blinking(str(int(val) * 2024), left)
+        multiplied_val = str(int(val) * 2024)
+        fractions = mapping.get((multiplied_val, left)) or blinking(multiplied_val, left)
 
     mapping[(val, left + 1)] = fractions
     return fractions
