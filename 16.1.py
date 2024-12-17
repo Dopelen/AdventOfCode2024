@@ -9,7 +9,6 @@ file_path = os.path.join(desktop, file_name)
 matrix = []
 d = [(-1, 0), (0, -1), (0, 1), (1, 0)]
 
-
 with (open(file_path, "r", encoding="utf-8") as file):
     new_line = file.readline().strip()
     while new_line:
@@ -25,7 +24,6 @@ with (open(file_path, "r", encoding="utf-8") as file):
     initial_direction = 2
     distances[start[0]][start[1]][initial_direction] = 0
     heappush(p_queue, (0, start[0], start[1], initial_direction))
-
 
     while p_queue:
         cost, y, x, direction = heapq.heappop(p_queue)

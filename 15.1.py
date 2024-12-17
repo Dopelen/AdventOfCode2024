@@ -5,7 +5,8 @@ file_name = "input 29.txt"
 file_path = os.path.join(desktop, file_name)
 gps = 0
 matrix = []
-d = {"^":(-1, 0), "<":(0, -1), ">":(0, 1), "v":(1, 0)}
+d = {"^": (-1, 0), "<": (0, -1), ">": (0, 1), "v": (1, 0)}
+
 
 def check_mov(cur_y, cur_x, dest):
     dy, dx = dest
@@ -26,7 +27,6 @@ def check_mov(cur_y, cur_x, dest):
             matrix[cur_y + dy][cur_x + dx], matrix[cur_y][cur_x] = matrix[cur_y][cur_x], matrix[cur_y + dy][cur_x + dx]
             matrix[cur_y][cur_x], matrix[new_y][new_x] = matrix[new_y][new_x], matrix[cur_y][cur_x]
             return cur_y + dy, cur_x + dx
-
 
 
 with (open(file_path, "r", encoding="utf-8") as file):

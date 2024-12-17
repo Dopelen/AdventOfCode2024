@@ -1,9 +1,5 @@
-import copy
 import heapq
-import math
 import os
-from collections import defaultdict
-from heapq import heappush
 
 desktop = os.path.join(os.path.expanduser("~"), "Desktop")
 file_name = "input 32.txt"
@@ -28,6 +24,7 @@ with (open(file_path, "r", encoding="utf-8") as file):
             if (end[0], end[1], dir) in dist:
                 best = min(best, dist[(end[0], end[1], dir)])
         return best
+
 
     def dijkstra(grid, starts):
         delta = {"E": (0, 1), "W": (0, -1), "N": (-1, 0), "S": (1, 0)}
@@ -64,6 +61,7 @@ with (open(file_path, "r", encoding="utf-8") as file):
 
         return dist
 
+
     from_start = dijkstra(matrix, [(start[0], start[1], "E")])
     from_end = dijkstra(matrix, [(end[0], end[1], d) for d in "EWNS"])
     optimal = part1()
@@ -81,4 +79,3 @@ with (open(file_path, "r", encoding="utf-8") as file):
                     ):
                         result.add((row, col))
 print(len(result))
-
